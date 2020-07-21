@@ -42,17 +42,72 @@ class ParenthesisMatching:
         return False
 
 
-def getPrecedence(char):
-    table = {"+": 1, "-": 1, "*": 2, "/": 2, "^": 3}
-    x = None
-    try:
-        x = table[char]
-    except:
-        x = 0
-        pass
-    return x
-
-
 class Postfix:
+    expression = None
+    isPostfix = None
 
-    pass
+    def __init__(self, exp):
+        self.expression = exp
+        self.isPostfix = False
+
+    def fromInfix2Post(self):
+        xprelen = len(self.expression)
+        exp = self.expression
+        stack = Stack()
+        postfixExp = ""
+        if xprelen > 0:
+            for x in range(xprelen):
+                if self.getPrecedence(exp[x]) == 0:
+                    postfixExp = postfixExp + exp[x]
+                else:
+                    if stack.topMost() is None:
+                        stack.push(exp[x])
+                    elif self.getPrecedence(stack.topMost()) < self.getPrecedence(exp[x]):
+                        stack.push(exp[x])
+                    else:
+                        while self.getPrecedence(stack.topMost()) >= self.getPrecedence(exp[x]):
+                            postfixExp = postfixExp + stack.pop()
+                        stack.push(exp[x])
+
+            if stack.topMost() is not None:
+                while stack.size > 0:
+                    postfixExp = postfixExp + stack.pop()
+        return postfixExp
+
+    def eval(self):
+        expLen = len(self.expression)
+        exp = self.fromInfix2Post()
+        stack = Stack()
+        if expLen > 0:
+            for x in range(expLen):
+                if self.getPrecedence(exp[x]) == 0:
+                    stack.push(exp[x])
+                elif self.getPrecedence(exp[x]) != 0:
+                    _sum = 0
+                    x2 = float(stack.pop())
+                    x1 = float(stack.pop())
+                    if exp[x] == "+":
+                        _sum = x1+x2
+                    elif exp[x] == "-":
+                        _sum = x1 - x2
+                    elif exp[x] == "*":
+                        _sum = x1 * x2
+                    elif exp[x] == "/":
+                        _sum = x1 / x2
+                    stack.push(str(_sum))
+        return stack.pop()
+
+
+
+
+    @staticmethod
+    def getPrecedence(char):
+        table = {"+": 1, "-": 1, "*": 2, "/": 2, "^": 3}
+        x = None
+        try:
+            x = table[char]
+        except IndexError:
+            x = 0
+        except Exception:
+            x = 0
+        return x
