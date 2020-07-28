@@ -1,4 +1,15 @@
-from node import Node
+from queues import Queue
 
-class BST:
-    size = None
+
+class Node:
+    data = None
+    lchild = None
+    rchild = None
+
+    def __init__(self, data):
+        self.data = data
+
+
+class BinaryTree:
+
+    pass

@@ -41,7 +41,7 @@ class QueueArray:
 
 
 class Queue:
-    _queue = None
+    # _queue = None
     _size = None
     _front = None
     _rear = None
@@ -79,3 +79,17 @@ class Queue:
 
     def length(self):
         return self._size
+
+    def isEmpty(self):
+        if self._size <= 0:
+            return True
+        return False
+
+    def __str__(self):
+        data = []
+        current = self._front
+        for _ in range(self._size):
+            data.append(current.data)
+            current = current.next
+        return str(data)
+
