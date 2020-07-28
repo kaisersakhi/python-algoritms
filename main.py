@@ -5,60 +5,44 @@ from stack import StackArray
 from stack import Stack
 # from test import Test
 from stack_apps import ParenthesisMatching, Postfix
-from queues import QueueArray , Queue
+from queues import QueueArray, Queue
 
 
 def main():
+    # queues()
+    trees()
+
+
+def trees():
+    pass
+
+
+def queues():
     queue = Queue()
     queue.enqueue(4)
     queue.enqueue(40)
     queue.enqueue(5)
     queue.enqueue(3)
     queue.enqueue(7)
+    print(queue)
 
 
-    for _ in range(3):
-        print("dequeue: ")
-        print(queue.dequeue())
+def linkedList():
+    mList = LinkedList()
+    mList.add(34)
+    mList.add(4)
+    mList.add(93)
+    mList.add(7)
+    mList.display()
 
-    print("*******************************\n" + "len = " + str(queue.length()))
-    queue.display()
-    # mQueue = QueueArray()
-    # mQueue.enqueue(4)
-    # mQueue.enqueue(2)
-    # # mQueue.enqueue(9)
-    # # mQueue.enqueue(6)
-    # mQueue.dequeue()
-    # mQueue.dequeue()
-    # mQueue.enqueue(2)
-    # mQueue.display()
-    # expression = Postfix("2-3*6+8/9-3")
-    # print(expression.eval())
 
-    # exp = "{()(a+b)*[2(a*b)]}"
-    # expMatching = ParenthesisMatching(exp)
-    # print(expMatching.match())
-    # stack = Stack()
-    # stack.push(5)
-    # stack.push(4)
-    # stack.push(3)
-    # stack.push(2)
-    # stack.push(1)
-    # print("Popped :-> "+str(stack.pop())+"Peek(3) "+str(stack.peek(4)))
-    # stack.display()
-
-    # dList = DoublyLinkedList()
-    # dList.add(5)
-    # dList.add(4)
-    # dList.add(3)
-    # dList.add(2)
-    # dList.add(1)
-    # # dList.insert(val=89, index=2)
-    # val = dList.remove(index=0)
-    # dList.display()
-    #
-    # print("--->"+str(val)+" has been deleted;")
-    # dList.reverseDisplay()
+def stacks():
+    stack = Stack()
+    stack.push(23)
+    stack.push(2)
+    stack.push(13)
+    stack.push(33)
+    stack.display()
 
 
 if __name__ == '__main__':
