@@ -85,6 +85,9 @@ class Queue:
             return True
         return False
 
+    def front(self):
+        return self._front.data
+
     def __str__(self):
         data = []
         current = self._front

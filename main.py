@@ -6,6 +6,25 @@ from stack import Stack
 # from test import Test
 from stack_apps import ParenthesisMatching, Postfix
 from queues import QueueArray, Queue
+from trees import BinaryTree
+
+
+"""
+/*
+    Note : This code is not written by a CS professional but a CS Grad. i hosted this code on github because i wannted to get
+            taste of git , the code is totally written in simple way possible . if you're learning data structures and algorithms ,
+            this might be useful for you.
+            :this code is highly infulanced by { Abdul Bari (Great Teacher) }
+                    link of his youtube channel : https://www.youtube.com/channel/UCZCFT11CWBi3MHNlGf019nw
+
+             if you find this code helpful in anyway than probally you should star it.
+             
+             if u like statically typed then checkout my java version right here on github ;)
+             
+             im working on java and python side by side;
+             
+ */
+"""
 
 
 def main():
@@ -14,6 +33,14 @@ def main():
 
 
 def trees():
+    tree = BinaryTree()
+    tree.add(1)
+    tree.add(2)
+    tree.add(3)
+    tree.add(45)
+    tree.add(5)
+    # tree.preOrder()
+    tree.levelOrder()
     pass
 
 
