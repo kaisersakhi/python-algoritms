@@ -7,7 +7,7 @@ from stack import Stack
 from stack_apps import ParenthesisMatching, Postfix
 from queues import QueueArray, Queue
 from trees import BinaryTree
-
+from sorts import bubbleSort, insertionSort, selectionSort, quickSort
 
 """
 /*
@@ -29,7 +29,14 @@ from trees import BinaryTree
 
 def main():
     # queues()
-    trees()
+    # trees()
+    mList = [10, 5, 8, 3, 15, 6, 12, 4]
+    # bubbleSort/(mList)
+    # insertionSort(mList)
+    # selectionSort(mList)
+
+    print(quickSort(mList))
+    print(mList)
 
 
 def trees():
@@ -39,7 +46,6 @@ def trees():
     tree.add(3)
     tree.add(45)
     tree.add(5)
-    # tree.preOrder()
     tree.levelOrder()
     pass
 
